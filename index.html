@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="styles/normalize.css" media="screen" charset="utf-8">
       <link rel="stylesheet" href="styles/html5bp.css" media="screen" charset="utf-8">
       <link rel="stylesheet" href="styles/style.css" media="screen" charset="utf-8">
+      <link href="https://fonts.googleapis.com/css?family=Catamaran:400,600,700" rel="stylesheet">
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,92 +18,130 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
-        <header>
-          <section class="container">
-            <a href="#"><h1>Feedr</h1></a>
-            <input id="search" type="text" name="name" value="" placeholder="search" />
-            <nav>
-              <ul>
-                <li><a href="#">News Source: <span class="selected-source">Source Name</span></a>
-                  <ul class="sources">
-                      <li><a href="#">Source 1</a></li>
-                      <li><a href="#">Source 2</a></li>
-                      <li><a href="#">Source 3</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
-            <div class="clearfix"></div>
-          </section>
-        </header>
-        <div id="popUp" class="loader hidden">
-          <a href="#" class="closePopUp">X</a>
-          <div class="container">
-            <h1>Article title here</h1>
-            <p>
-              Article description/content here.
-            </p>
-            <a href="#" class="popUpAction" target="_blank">Read more from source</a>
+        <header class="feedr-header">
+          <div class="feedr-container feedr-header__wrapper">
+            <section class="feedr-logo">
+              Feedr.
+            </section>
+            <section class="feedr-search">
+              <input class="feedr-search__input" type="text" placeholder="What news are you looking for?" />
+              <button class="feedr-search__button">Search</button>
+            </section>
           </div>
-        </div>
-        <section id="main" class="container">
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_1.jpg" alt="" />
+        </header>
+        <main class="feedr-content">
+          <div class="feedr-container feedr-content__wrapper">
+            <aside class="feedr-content__sidebar">
+              <div class="feedr-content__sidebar-wrapper">
+                <h3>Sources</h3>
+                <ul class="feedr-sources">
+                  <li class="feedr-sources__source selected"><button class="feedr-sources__button">Source Name</button></li>
+                  <li class="feedr-sources__source"><button class="feedr-sources__button">Source Name</button></li>
+                  <li class="feedr-sources__source"><button class="feedr-sources__button">Source Name</button></li>
+                  <li class="feedr-sources__source"><button class="feedr-sources__button">Source Name</button></li>
+                  <li class="feedr-sources__source"><button class="feedr-sources__button">Source Name</button></li>
+                  <li class="feedr-sources__source"><button class="feedr-sources__button">Source Name</button></li>
+                </ul>
+              </div>
+            </aside>
+            <section class="feedr-content__articles">
+              <article class="feedr-article">
+                <div class="feedr-article__image-container">
+                  <a href="#">
+                    <img class="feedr-article__image" src="#" alt="#" />
+                  </a>
+                </div>
+                <a class="feedr-article__text-container" href="#">
+                  <h3 class="feedr-article__title">Article Title</h3>
+                  <p class="feedr-article__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                  <div class="feedr-article__source">
+                    <h4 class="feedr-article__source-name">Source Name</h4>
+                  </div>
+                </a>
+              </article>
+              <article class="feedr-article">
+                <div class="feedr-article__image-container">
+                  <a href="#">
+                    <img class="feedr-article__image" src="#" alt="#" />
+                  </a>
+                </div>
+                <a class="feedr-article__text-container" href="#">
+                  <h3 class="feedr-article__title">Article Title</h3>
+                  <p class="feedr-article__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                  <div class="feedr-article__source">
+                    <h4 class="feedr-article__source-name">Source Name</h4>
+                  </div>
+                </a>
+              </article>
+              <article class="feedr-article">
+                <div class="feedr-article__image-container">
+                  <a href="#">
+                    <img class="feedr-article__image" src="#" alt="#" />
+                  </a>
+                </div>
+                <a class="feedr-article__text-container" href="#">
+                  <h3 class="feedr-article__title">Article Title</h3>
+                  <p class="feedr-article__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                  <div class="feedr-article__source">
+                    <h4 class="feedr-article__source-name">Source Name</h4>
+                  </div>
+                </a>
+              </article>
+              <article class="feedr-article">
+                <div class="feedr-article__image-container">
+                  <a href="#">
+                    <img class="feedr-article__image" src="#" alt="#" />
+                  </a>
+                </div>
+                <a class="feedr-article__text-container" href="#">
+                  <h3 class="feedr-article__title">Article Title</h3>
+                  <p class="feedr-article__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                  <div class="feedr-article__source">
+                    <h4 class="feedr-article__source-name">Source Name</h4>
+                  </div>
+                </a>
+              </article>
+              <article class="feedr-article">
+                <div class="feedr-article__image-container">
+                  <a href="#">
+                    <img class="feedr-article__image" src="#" alt="#" />
+                  </a>
+                </div>
+                <a class="feedr-article__text-container" href="#">
+                  <h3 class="feedr-article__title">Article Title</h3>
+                  <p class="feedr-article__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+                  <div class="feedr-article__source">
+                    <h4 class="feedr-article__source-name">Source Name</h4>
+                  </div>
+                </a>
+              </article>
             </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_2.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_2.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-          <article class="article">
-            <section class="featuredImage">
-              <img src="images/article_placeholder_1.jpg" alt="" />
-            </section>
-            <section class="articleContent">
-                <a href="#"><h3>Test article title</h3></a>
-                <h6>Lifestyle</h6>
-            </section>
-            <section class="impressions">
-              526
-            </section>
-            <div class="clearfix"></div>
-          </article>
-        </section>
+          </div>
+        </main>
+        <footer class="feedr-footer">
+          
+        </footer>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <section class="feedr-modal">
+          <div class="feedr-modal__container">
+            <div class="feedr-modal__header">
+              <h3 class="feedr-modal__title">Article Title</h3>
+              <div class="feedr-modal__close">X</div>
+            </div>
+            <div class="feedr-modal__content">
+              <div class="feedr-modal__article-text">
+                <p>
+                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" <strong>(The Extremes of Good and Evil)</strong> by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <p>
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                </p>
+              </div>
+              <div class="feedr-modal__source">
+                <a href="#">Read more from <span class="source">The Washington Post</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
         <script src="js/app.js"></script>
 
     </body>

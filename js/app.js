@@ -12,6 +12,7 @@ const feedr = {
   defineElements: () => {
     feedr.resultsContainer = document.querySelector('.feedr-content__articles');
     feedr.sourceContainer = document.querySelector('.feedr-sources');
+    feedr.sourcesTitle = document.querySelector('.feedr-content__sidebar-wrapper h3');
     feedr.modalContainer = document.querySelector('.feedr-modal');
     feedr.modalContent = feedr.modalContainer.querySelector('.feedr-modal__content');
     feedr.modalTitle = feedr.modalContainer.querySelector('.feedr-modal__title');
@@ -25,8 +26,9 @@ const feedr = {
       feedr.getNews(feedr.searchTerm);
     });
   },
-  getNews: (searchTerm) => {
+  getNews: (searchTerm, filterClicked) => {
     let term = searchTerm.length > 0 ? `&q=${searchTerm}` : '&country=us';
+    console.log(`${API_ENDPOINT}${term}`);
     xhr.open('GET', `${API_ENDPOINT}${term}`);
     xhr.send();
     xhr.onload = () => {
@@ -42,8 +44,11 @@ const feedr = {
           }
         });
         feedr.updateResults(feedr.results);
-        let sources = feedr.results.map(article => article.data.source.name).filter((item, i, self) => self.indexOf(item) == i);
-        feedr.updateSources(sources);
+        if (!filterClicked) {
+          let sources = feedr.results.map(article => article.data.source.name).filter((item, i, self) => self.indexOf(item) == i);
+          feedr.updateSources(sources);
+          feedr.sourcesTitle.innerText = `Sources (${sources.length})`;
+        }
       }
     }
   },
@@ -64,6 +69,7 @@ const feedr = {
         sourceButtons.forEach(button => button.parentNode.classList.remove('selected'));
         feedr.clickedSource = e.currentTarget;
         feedr.clickedSource.parentNode.classList.add('selected');
+        feedr.getNews(feedr.clickedSource.innerText, true);
       });
     });
   },

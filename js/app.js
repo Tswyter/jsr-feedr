@@ -8,6 +8,9 @@ const feedr = {
     feedr.defineElements();
     feedr.addListeners();
     feedr.getNews('');
+    feedr.logo.addEventListener('click', () => {
+      feedr.getNews('');
+    });
   },
   defineElements: () => {
     feedr.resultsContainer = document.querySelector('.feedr-content__articles');
@@ -17,6 +20,7 @@ const feedr = {
     feedr.modalContent = feedr.modalContainer.querySelector('.feedr-modal__content');
     feedr.modalTitle = feedr.modalContainer.querySelector('.feedr-modal__title');
     feedr.searchInput = document.querySelector('.feedr-search__input');
+    feedr.logo = document.querySelector('.feedr-logo');
   },
   addListeners: () => {
     const closeModalButton = feedr.modalContainer.querySelector('.feedr-modal__close');
@@ -28,7 +32,6 @@ const feedr = {
   },
   getNews: (searchTerm, filterClicked) => {
     let term = searchTerm.length > 0 ? `&q=${searchTerm}` : '&country=us';
-    console.log(`${API_ENDPOINT}${term}`);
     xhr.open('GET', `${API_ENDPOINT}${term}`);
     xhr.send();
     xhr.onload = () => {
@@ -37,13 +40,18 @@ const feedr = {
         console.error(data.message);
       } else {
         const articles = data.articles;
-        feedr.results = articles.map(article => {
-          return {
-            formatted: feedr.formatFeedPost(article),
-            data: article
-          }
-        });
-        feedr.updateResults(feedr.results);
+        if (!filterClicked) {
+          feedr.results = articles.map(article => {
+            return {
+              formatted: feedr.formatFeedPost(article),
+              data: article
+            }
+          });
+          feedr.updateResults(feedr.results);
+        } else {
+          const filteredResults = feedr.results.filter(article => article.data.source.name === searchTerm);
+          feedr.updateResults(filteredResults);
+        }
         if (!filterClicked) {
           let sources = feedr.results.map(article => article.data.source.name).filter((item, i, self) => self.indexOf(item) == i);
           feedr.updateSources(sources);
